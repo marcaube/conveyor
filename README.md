@@ -68,4 +68,4 @@ $('.control-start').click(function() {
 
 ## License
 
-Conveyor is released under the MIT License. See the bundled [LICENSE]() file for details.
+Conveyor is released under the MIT License. See the bundled [LICENSE](LICENSE) file for details.
