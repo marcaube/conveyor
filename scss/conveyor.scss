@@ -1,0 +1,22 @@
+.conveyor {
+    padding: 2px;
+    overflow-x: hidden;
+
+    .items {
+        list-style-type: none;
+        padding-left: 0;
+        white-space: nowrap;
+
+        > li {
+            position: relative;
+            display: inline-block;
+            margin-right: 35px;
+            cursor: pointer;
+        }
+
+        img {
+            padding: 2px;
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, .25);
+        }
+    }
+}

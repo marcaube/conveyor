@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+    <head>
+        <style>
+            body {
+                padding-top: 40px;
+                font-family: Helvetica, Arial, sans-serif;
+            }
+
+            a,
+            a:visited {
+                color: #428bca;
+            }
+
+            .container {
+                max-width: 465px;
+                margin: 0 auto;
+            }
+
+            /* Add some numbering to thumbnails */
+            .conveyor {
+                counter-reset: thumbs;
+            }
+
+            .items > li:before {
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+                content: counter(thumbs);
+                counter-increment: thumbs;
+                font-weight: bold;
+                color: #fff;
+            }
+
+            .controls {
+                list-style-type: none;
+                padding-left: 0;
+            }
+
+            .controls > li {
+                padding: 0 5px;
+                display: inline-block;
+            }
+
+            .controls > li:first-child {
+                padding-left: 0;
+            }
+        </style>
+        <link rel="stylesheet" href="css/conveyor.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="conveyor">
+                <ul class="items">
+                    <li>
+                        <img src="http://placehold.it/120x120" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://placehold.it/120x120" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://placehold.it/120x120" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://placehold.it/120x120" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://placehold.it/120x120" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://placehold.it/120x120" alt=""/>
+                    </li>
+                </ul>
+            </div>
+
+            <ul class="controls">
+                <li><a class="control-previous" href="#">Previous Stop</a></li>
+                <li><a class="control-next" href="#">Next Stop</a></li>
+                <li><a class="control-start" href="#">Back to the beginning</a></li>
+            </ul>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="js/jquery.conveyor.js"></script>
+        <script>
+            $(function() {
+                var slider = $('.conveyor .items').conveyor();
+
+                $('.control-previous').click(function() {
+                    slider.scrollTo(slider.index() - 1);
+                });
+
+                $('.control-next').click(function() {
+                    slider.scrollTo(slider.index() + 1);
+                });
+
+                $('.control-start').click(function() {
+                    slider.scrollTo(0);
+                });
+            });
+        </script>
+    </body>
+</html>
