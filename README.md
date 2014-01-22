@@ -44,7 +44,7 @@ $(function() {
 
 You can use the `next()`, `previous()` and `restart()` methods to make it move.
 
-There is also a `scrollTo()` and an `index()` method that you can use to control precisely where you want.
+There is also a `scrollTo()` and an `index()` method that you can use to control precisely where you want it to go.
 
 ```js
 var slider = $('.conveyor .items').conveyor();
