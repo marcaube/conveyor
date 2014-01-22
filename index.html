@@ -16,6 +16,10 @@
                 margin: 0 auto;
             }
 
+            .conveyor--vertical {
+                max-height: 300px;
+            }
+
             /* Add some numbering to thumbnails */
             .conveyor {
                 counter-reset: thumbs;
@@ -49,7 +53,7 @@
     </head>
     <body>
         <div class="container">
-            <div class="conveyor">
+            <div class="slider1 conveyor">
                 <ul class="items">
                     <li>
                         <img src="http://placehold.it/120x120" alt=""/>
@@ -77,24 +81,53 @@
                 <li><a class="control-next" href="#">Next Stop</a></li>
                 <li><a class="control-start" href="#">Back to the beginning</a></li>
             </ul>
+
+            <div class="slider2 conveyor conveyor--vertical">
+                <ul class="items">
+                    <li>
+                        <img src="http://placehold.it/120x120" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://placehold.it/120x120" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://placehold.it/120x120" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://placehold.it/120x120" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://placehold.it/120x120" alt=""/>
+                    </li>
+                    <li>
+                        <img src="http://placehold.it/120x120" alt=""/>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script src="js/jquery.conveyor.js"></script>
         <script>
             $(function() {
-                var slider = $('.conveyor .items').conveyor();
-
-                $('.control-previous').click(function() {
-                    slider.scrollTo(slider.index() - 1);
+                var slider = $('.slider1 .items').conveyor();
+                var slider2 = $('.slider2 .items').conveyor({
+                    direction: 'vertical'
                 });
 
-                $('.control-next').click(function() {
-                    slider.scrollTo(slider.index() + 1);
+                $('.controls .control-previous').click(function() {
+                    slider.previous();
+                    slider2.previous();
                 });
 
-                $('.control-start').click(function() {
-                    slider.scrollTo(0);
+                $('.controls .control-next').click(function() {
+                    slider.next();
+                    slider2.next();
+                });
+
+                $('.controls .control-start').click(function() {
+                    slider.restart();
+                    slider2.restart();
                 });
             });
         </script>

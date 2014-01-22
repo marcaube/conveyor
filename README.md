@@ -40,23 +40,63 @@ $(function() {
 });
 ```
 
-## Add a control board to your conveyor
+### Add a control board to your conveyor
 
-There is a `scrollTo()` and an `index()` method that you can use to add controls to the conveyor
+You can use the `next()`, `previous()` and `restart()` methods to make it move.
+
+There is also a `scrollTo()` and an `index()` method that you can use to control precisely where you want.
 
 ```js
 var slider = $('.conveyor .items').conveyor();
 
 $('.control-previous').click(function() {
-    slider.scrollTo(slider.index() - 1);
+    slider.previous();
 });
 
 $('.control-next').click(function() {
-    slider.scrollTo(slider.index() + 1);
+    slider.next();
 });
 
 $('.control-start').click(function() {
-    slider.scrollTo(0);
+    slider.restart();
+});
+```
+
+### Make a vertical slider
+
+Set the direction option to 'vertical' ...
+
+```js
+var slider = $('.conveyor .items').conveyor({
+    direction: 'vertical'
+});
+```
+
+... and add the `conveyor--vertical` class to your HTML element
+
+```html
+<div class="conveyor conveyor--vertical">
+    <ul class="items">
+        <li>
+            <img src="http://placehold.it/120x120" alt=""/>
+        </li>
+        <li>
+            <img src="http://placehold.it/120x120" alt=""/>
+        </li>
+        <!-- ... -->
+    </ul>
+</div>
+```
+
+### Add a callback function
+
+There is an `onScroll` option you can use to execute a function every time the conveyor scrolls
+
+```js
+var slider = $('.conveyor .items').conveyor({
+    onScroll: function(){
+        alert('Hi!');
+    }
 });
 ```
 
